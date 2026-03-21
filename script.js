@@ -1,0 +1,35 @@
+async function getPrice(){
+
+const coin = document.getElementById("coinInput").value.toLowerCase();
+
+if(!coin){
+alert("Enter a coin name");
+return;
+}
+
+const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coin}&vs_currencies=usd`;
+
+try{
+
+const response = await fetch(url);
+const data = await response.json();
+
+console.log(data);
+
+if(!data[coin]){
+alert("Coin not found");
+return;
+}
+
+document.getElementById("coinName").textContent = coin.toUpperCase();
+document.getElementById("coinPrice").textContent =
+"$" + data[coin].usd;
+
+}catch(error){
+
+console.log(error);
+alert("Error fetching price");
+
+}
+
+}
