@@ -1,35 +1,30 @@
-async function getPrice(){
+async function getPrice() {
+  const coin = document.getElementById("coinInput").value.trim().toLowerCase();
 
-const coin = document.getElementById("coinInput").value.toLowerCase();
+  if (!coin) {
+    alert("Enter a coin like bitcoin or ethereum");
+    return;
+  }
 
-if(!coin){
-alert("Enter a coin name");
-return;
-}
+  const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coin}&vs_currencies=usd`;
 
-const url = `https://api.coingecko.com/api/v3/simple/price?ids=${coin}&vs_currencies=usd`;
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
 
-try{
+    console.log(data);
 
-const response = await fetch(url);
-const data = await response.json();
+    if (!data[coin]) {
+      alert("Coin not found");
+      return;
+    }
 
-console.log(data);
+    document.getElementById("coinName").textContent = coin.toUpperCase();
+    document.getElementById("coinPrice").textContent =
+      "$" + data[coin].usd;
 
-if(!data[coin]){
-alert("Coin not found");
-return;
-}
-
-document.getElementById("coinName").textContent = coin.toUpperCase();
-document.getElementById("coinPrice").textContent =
-"$" + data[coin].usd;
-
-}catch(error){
-
-console.log(error);
-alert("Error fetching price");
-
-}
-
+  } catch (error) {
+    console.log(error);
+    alert("Error fetching price");
+  }
 }
