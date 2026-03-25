@@ -8,14 +8,21 @@
 
 <body>
 
-<div class="container">
+<div class="container"> 
 
 <h1>Crypto Price Tracker</h1>
+
+<p id="loading" style="display: none;"><Loading...</p>
 
 <input type="text" id="coinInput" placeholder="Enter coin name (bitcoin)">
 <button onclick="getPrice()">Search</button>
 
+<p id="loading" style="display:none;"><Loading...</p>
+
 <div class="result-card" id="resultCard">
+
+<img id="coinLogo" />
+
 <h2 id="coinName"></h2>
 <p id="coinPrice"></p>
 <p id="coinChange"></p>
