@@ -25,3 +25,55 @@ padding:10px;
 cursor:pointer;
 margin-left:5px;
 }
+
+.result-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #1e1e1e;
+  color: white;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.result-card:hover {
+  transform: scale(1.03);
+}
+
+.project-card {
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #0056b3;
+  transform: scale(1.05);
+}
